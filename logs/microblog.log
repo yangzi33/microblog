@@ -1,0 +1,54 @@
+2022-01-01 22:44:41,797 INFO: Microblog startup [in /Users/yangzi33/github/web/flask/microblog/app/__init__.py:78]
+2022-01-01 22:44:46,315 ERROR: Exception on /edit_profile [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/yangzi33/github/web/flask/microblog/app/routes.py", line 82, in edit_profile
+    form = EditProfileForm()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'original_username'
+2022-01-01 22:44:51,597 ERROR: Exception on /edit_profile [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/yangzi33/github/web/flask/microblog/app/routes.py", line 82, in edit_profile
+    form = EditProfileForm()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'original_username'
+2022-01-01 22:46:50,898 ERROR: Exception on /edit_profile [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/yangzi33/github/web/flask/microblog/app/routes.py", line 82, in edit_profile
+    form = EditProfileForm(current_user.username)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'original_username'
+2022-01-01 22:46:54,511 INFO: Microblog startup [in /Users/yangzi33/github/web/flask/microblog/app/__init__.py:78]
+2022-01-01 23:21:03,225 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]

@@ -52,3 +52,5 @@ Traceback (most recent call last):
 TypeError: __init__() missing 1 required positional argument: 'original_username'
 2022-01-01 22:46:54,511 INFO: Microblog startup [in /Users/yangzi33/github/web/flask/microblog/app/__init__.py:78]
 2022-01-01 23:21:03,225 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-02 18:09:57,939 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-02 18:10:06,527 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]

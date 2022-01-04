@@ -23,20 +23,7 @@ def index():
         flash("Posted successfully!")
         return redirect(url_for("index"))
 
-    ####################################
-    # Fake Posts; delete in production.#
-    ####################################
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    #####################################
+    posts = current_user.followed_posts().all()
     return render_template("index.html", title="Home Page", form=form, posts=posts)
 
 

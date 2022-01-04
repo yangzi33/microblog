@@ -6,7 +6,9 @@ from app.models import Post, User
 
 class UserModelCase(unittest.TestCase):
 
-    def setup(self):
+    def setUp(self):
+        # Prevent direct access to db
+        # This creates a in-memory db for testing purposes
         app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite://"
         db.create_all()
 
@@ -53,14 +55,12 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(u2.followers.count(), 0)
 
     def test_followed_posts(self):
-        u1, u2, u3, u4 = \
-            User(username='john', email="john@example.com"),\
-            User(username="susan", email="susan@example.com"),\
-            User(username='mary', email="mary@example.com"),\
-            User(username="robert", email="robert@example.com")
+        u1 = User(username="john", email="john@example.com")
+        u2 = User(username="susan", email="susan@example.com")
+        u3 = User(username="mary", email="mary@example.com")
+        u4 = User(username="robert", email="robert@example.com")
 
         db.session.add_all([u1, u2, u3, u4])
-        db.session.commit()
 
         # Create 4 posts
         now = datetime.utcnow()

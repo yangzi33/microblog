@@ -6,14 +6,26 @@ from app.forms import *
 
 # For user authentication/login/logout
 from flask_login import current_user, login_user, logout_user
-from app.models import User
+from app.models import *
 from datetime import datetime
 
-@app.route("/")
-@app.route("/index")
+
+@app.route("/", methods=["GET", "POST"])
+@app.route("/index", methods=["GET", "POST"])
 # Require user to login
 @login_required
 def index():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash("Posted successfully!")
+        return redirect(url_for("index"))
+
+    ####################################
+    # Fake Posts; delete in production.#
+    ####################################
     posts = [
         {
             'author': {'username': 'John'},
@@ -24,7 +36,9 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template("index.html", posts=posts)
+    #####################################
+    return render_template("index.html", title="Home Page", form=form, posts=posts)
+
 
 # the methods arguments indicates that this view function accepts
 # GET and POST requests, overriding the default of accepting only

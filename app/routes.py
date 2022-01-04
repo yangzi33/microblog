@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
+from app.forms import *
 
 # For user authentication/login/logout
 from flask_login import current_user, login_user, logout_user
@@ -107,11 +107,21 @@ def logout():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
+    form = EmptyForm()
+
+    ###############################################################
+    # Warning: for testing purposes only. Remove when production. #
+    ###############################################################
+
     posts = [
         {'author': user, 'body': 'Test post #1'},
         {'author': user, 'body': 'Test post #2'}
     ]
-    return render_template("user.html", user=user, posts=posts)
+
+    # End of testing code
+    ###############################################################
+
+    return render_template("user.html", user=user, posts=posts, form=form)
 
 
 # Record the last visit time for a User
@@ -120,3 +130,53 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+
+@app.route("/follow/<username>", methods=["POST"])
+@login_required
+def follow(username):
+    form = EmptyForm()
+    if form.validate_on_submit():
+        u = User.query.filter_by(username=username).first()
+        if u is None:
+            flash("User {} not found.".format(username))
+            return redirect(url_for("index"))
+        if user == current_user:
+            flash("You followed yourself. Oh wait, you can't.")
+            return redirect(url_for("user", username=username))
+
+        # Follow action
+        current_user.follow(u)
+        db.session.commit()
+        flash("You are following {}".format(username))
+        return redirect(url_for("user", username=username))
+    else:
+        # validate_on_submit fails if the CRSF token is missing or invalid.
+        return redirect(url_for("index"))
+
+
+@app.route("/unfollow/<username>", methods=["POST"])
+@login_required
+def unfollow(username):
+    form = EmptyForm()
+    if form.validate_on_submit():
+        u = User.query.filter_by(username=username).first()
+        if u is None:
+            flash("User {} not found.".format(username))
+            return redirect(url_for("index"))
+        if u == current_user:
+            flash("You unfollowed yourself. Oh wait, you can't.")
+            return redirect(url_for("user", username=username))
+
+        current_user.unfollow(u)
+        db.session.commit()
+        flash("You are no longer following {}.".format(username))
+        return redirect(url_for("user", username=username))
+    else:
+        # validate_on_submit fails if the CRSF token is missing or invalid.
+        return redirect(url_for("index"))
+
+
+
+
+

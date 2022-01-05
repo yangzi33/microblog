@@ -25,5 +25,5 @@ class Config(object):
     ADMINS = ['your-email@example.com']
 
     # Configuring Pagination
-    POSTS_PER_PAGE = 3
+    POSTS_PER_PAGE = 20
 

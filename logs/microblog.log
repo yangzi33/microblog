@@ -1,56 +1,80 @@
-2022-01-01 22:44:41,797 INFO: Microblog startup [in /Users/yangzi33/github/web/flask/microblog/app/__init__.py:78]
-2022-01-01 22:44:46,315 ERROR: Exception on /edit_profile [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
+2022-01-03 17:58:17,756 ERROR: Exception on / [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
   File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/yangzi33/github/web/flask/microblog/app/routes.py", line 82, in edit_profile
-    form = EditProfileForm()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/wtforms/form.py", line 208, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'original_username'
-2022-01-01 22:44:51,597 ERROR: Exception on /edit_profile [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
-Traceback (most recent call last):
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/yangzi33/github/web/flask/microblog/app/routes.py", line 82, in edit_profile
-    form = EditProfileForm()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/wtforms/form.py", line 208, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'original_username'
-2022-01-01 22:46:50,898 ERROR: Exception on /edit_profile [GET] [in /Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py:1454]
-Traceback (most recent call last):
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/yangzi33/github/web/flask/microblog/app/routes.py", line 82, in edit_profile
-    form = EditProfileForm(current_user.username)
-  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/wtforms/form.py", line 208, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'original_username'
-2022-01-01 22:46:54,511 INFO: Microblog startup [in /Users/yangzi33/github/web/flask/microblog/app/__init__.py:78]
-2022-01-01 23:21:03,225 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
-2022-01-02 18:09:57,939 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
-2022-01-02 18:10:06,527 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1511, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask/app.py", line 1857, in preprocess_request
+    rv = self.ensure_sync(func)()
+  File "/Users/yangzi33/github/microblog/app/routes.py", line 120, in before_request
+    if current_user.is_authenticated:
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/werkzeug/local.py", line 422, in __get__
+    obj = instance._get_current_object()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/werkzeug/local.py", line 544, in _get_current_object
+    return self.__local()  # type: ignore
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/flask_login/login_manager.py", line 318, in _load_user
+    user = self._user_callback(user_id)
+  File "/Users/yangzi33/github/microblog/app/models.py", line 96, in load_user
+    return User.query.get(int(id))
+  File "<string>", line 2, in get
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 390, in warned
+    return fn(*args, **kwargs)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 933, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 937, in _get_impl
+    return self.session._get_impl(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2839, in _get_impl
+    return db_load_fn(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/orm/loading.py", line 531, in load_on_pk_identity
+    session.execute(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 324, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/yangzi33/anaconda3/envs/flask_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (11,)]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+2022-01-03 17:59:13,439 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-03 18:00:47,098 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-03 21:01:48,121 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-03 21:01:59,539 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-03 21:02:41,257 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-03 21:03:40,191 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-03 21:03:57,682 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-04 19:32:07,731 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-04 20:21:33,780 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-04 20:21:39,700 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-05 12:19:16,209 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]
+2022-01-05 12:25:16,809 INFO: Microblog startup [in /Users/yangzi33/github/microblog/app/__init__.py:78]

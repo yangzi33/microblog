@@ -37,7 +37,7 @@ def login():
         return redirect(url_for("index"))
 
     form = LoginForm()
-    # Accept and validte the data submitted by user
+    # Accept and validate the data submitted by user
     # validate_on_submit: this method does all the form processing stuff.
     # When the browser sends the GET reques to receive the webpage with
     # the form, this method returns False, so the function skips the if
@@ -178,6 +178,11 @@ def unfollow(username):
         return redirect(url_for("index"))
 
 
+@app.route("/explore")
+@login_required
+def explore():
+    posts = Post.query.order_by(Post.timestamp.desc()).all
+    return render_template("index.html", title="Explore", posts=posts)
 
 
 

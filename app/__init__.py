@@ -3,6 +3,7 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_mail import Mail
 
 # Modules for Error Logging
 import logging
@@ -26,6 +27,7 @@ from app import routes, models, errors
 
 from logging.handlers import RotatingFileHandler
 import os
+
 
 
 # Log errors by email
@@ -77,3 +79,8 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info("Microblog startup")
 
+
+#######################
+# Flask Mail Instance.#
+#######################
+mail = Mail(app)

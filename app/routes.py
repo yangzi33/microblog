@@ -3,6 +3,7 @@ from flask_login import login_required
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
+from app.email import *
 
 # For user authentication/login/logout
 from flask_login import current_user, login_user, logout_user
@@ -211,4 +212,17 @@ def explore():
                            next_url=next_url, prev_url=prev_url)
 
 
+@app.route("/reset_password_request", methods=["GET", "POST"])
+def reset_password_request():
+    if current_user.is_authenticated():
+        return redirect(url_for("index"))
+
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash("Check your email for the instructions to reset your password.")
+        return redirect(url_for("login"))
+    return render_template("reset_password.html", title="Reset Password", form="form")
 

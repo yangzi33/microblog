@@ -5,31 +5,29 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 
-# Modules for Error Logging
+from logging.handlers import RotatingFileHandler, SMTPHandler
+import os
 import logging
-from logging.handlers import SMTPHandler
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Note: to initiaize db for the first time, run `flask db init` at basedir
+# Note: to initialize db for the first time, run `flask db init` at basedir
 db = SQLAlchemy(app)
 
 # To migrate, run `flask db migrate -m "<message>"`, followed by `flask db upgrade`
 # for migration update
 migrate = Migrate(app, db)
 
-# For User login (form chapter 4)
+# For User login (from chapter 4)
 login = LoginManager(app)
 login.login_view = "login"
 
+# Flask Mail Instance.#
+mail = Mail(app)
+
 from app import routes, models, errors
-
-from logging.handlers import RotatingFileHandler
-import os
-
-
-
 # Log errors by email
 if not app.debug:
 
@@ -80,7 +78,4 @@ if not app.debug:
     app.logger.info("Microblog startup")
 
 
-#######################
-# Flask Mail Instance.#
-#######################
-mail = Mail(app)
+

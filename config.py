@@ -26,4 +26,3 @@ class Config(object):
 
     # Configuring Pagination
     POSTS_PER_PAGE = 20
-

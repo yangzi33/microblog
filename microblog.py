@@ -1,6 +1,8 @@
 # Main application module
+from app import cli  # Register command-line commands
 from app import app, db
 from app.models import User, Post
+
 
 # Pre-imports modules for `flask shell`
 @app.shell_context_processor

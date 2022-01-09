@@ -42,8 +42,9 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
+    # Uncomment to test Spanish I18n & L10n
+    # return "es"
     return request.accept_languages.best_match(app.config["LANGUAGES"])
-
 
 #################
 # Error Logging #

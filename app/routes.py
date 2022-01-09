@@ -1,5 +1,6 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import login_required
+from flask_babel import get_locale
 from werkzeug.urls import url_parse
 from app.forms import *
 from app.email import send_password_reset_email
@@ -247,6 +248,9 @@ def reset_password(token):
     return render_template("email/reset_password.html", form=form)
 
 
+@app.before_request
+def before_request():
+    g.locale = str(get_locale())
 
 
 

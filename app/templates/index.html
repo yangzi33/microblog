@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+
     <h1>Hello, {{ current_user.username }}!</h1>
     <form action="" method="post">
     {% if form %}
@@ -19,12 +20,21 @@
         {% include "_post.html" %}
     {% endfor %}
 
-    <!---- Pagination Switch --->
-    {% if prev_url %}
-        <a href="{{ prev_url }}">Newer Posts</a>
-    {% endif %}
-    {% if next_url %}
-        <a href="{{ next_url }}">Older Posts</a>
-    {% endif %}
+    {#  Pagination links  #}
+    {#  Adapted from https://getbootstrap.com/docs/3.3/components/#optional-disabled-state  #}
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> Newer posts
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    Older posts <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
 {% endblock %}

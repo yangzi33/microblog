@@ -55,3 +55,9 @@
         {% endblock %}
     </div>
 {% endblock %}
+
+{#  Include moment in the base template for timestamp #}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}

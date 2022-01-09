@@ -10,7 +10,7 @@
             <a href="{{ url_for("user", username=post.author.username) }}">
                 {{ post.author.username }}
             </a>
-            says: <br>
+            <span style="color: Gray;">{{ moment(post.timestamp).fromNow() }} </span>: <br>
             {{ post.body }}
         </td>
     </tr>

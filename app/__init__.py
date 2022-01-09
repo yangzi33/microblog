@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -6,6 +6,7 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask_babel import Babel
 
 from logging.handlers import RotatingFileHandler, SMTPHandler
 import os
@@ -34,6 +35,15 @@ bootstrap = Bootstrap(app)
 
 # Moment instance
 moment = Moment(app)
+
+# Babel instance for I18n and L10n
+babel = Babel(app)
+
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
+
 
 #################
 # Error Logging #

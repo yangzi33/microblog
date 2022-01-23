@@ -14,7 +14,7 @@ class Config(object):
     # Take defined database path or configure a database named app.db
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "").replace(
         "postgres://", "postgresql://") or \
-        "sqlite://" + os.path.join(basedir, "app.db")
+        "sqlite:///" + os.path.join(basedir, "app.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Email Configuration

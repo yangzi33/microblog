@@ -31,3 +31,6 @@ class Config(object):
 
     # Supported languages (using Babel)
     LANGUAGES = ["en", "es"]
+
+    # Logging heroku logs to stdout
+    LOG_TO_STDOUT = os.environ.get("LOG_TO_STDOUT")
